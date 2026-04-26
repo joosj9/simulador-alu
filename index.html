@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<title>Simulador ALU</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- LOADER -->
+<div id="loader"> INICIANDO SISTEMA...</div>
+
+<!-- INICIO -->
+<div id="home" class="screen active">
+    <h1> SIMULADOR ALU</h1>
+    <p>Arquitectura de Computadoras</p>
+    <button class="start-btn" onclick="goToApp()">INICIAR</button>
+</div>
+
+<!-- APP -->
+<div id="app" class="screen">
+
+<h1> ALU 8-BITS</h1>
+
+<nav>
+<button class="nav-btn active" onclick="show('conversion', this)">Conversión</button>
+<button class="nav-btn" onclick="show('c2', this)">Complemento a 2</button>
+<button class="nav-btn" onclick="show('operaciones', this)">Operaciones</button>
+<button class="nav-btn" onclick="showScreen('info')">Información</button>
+</nav>
+
+<!-- CONVERSIÓN -->
+<div id="conversion" class="section active">
+<div class="card">
+<h2>Conversión</h2>
+
+<input id="dec" type="number" placeholder="-128 a 127">
+<button onclick="decToBin()">Decimal → Binario</button>
+
+<input id="bin" placeholder="00000000">
+<button onclick="binToDec()">Binario → Decimal</button>
+
+<div id="resConv" class="result"></div>
+</div>
+</div>
+
+<!-- C2 -->
+<div id="c2" class="section">
+<div class="card">
+<h2>Complemento a 2</h2>
+
+<input id="numC2" type="number" placeholder="-5">
+<button onclick="calcC2()">Mostrar Proceso</button>
+
+<div id="resC2" class="result"></div>
+</div>
+</div>
+
+<!-- ALU -->
+<div id="operaciones" class="section">
+<div class="card">
+<h2>ALU</h2>
+
+<input id="a" placeholder="00000000">
+
+<select id="op">
+<option value="AND">AND</option>
+<option value="OR">OR</option>
+<option value="XOR">XOR</option>
+<option value="NOT">NOT</option>
+<option value="SUM">SUMA</option>
+</select>
+
+<input id="b" placeholder="00000000">
+<button onclick="operate()">Ejecutar</button>
+
+<div id="resALU" class="result"></div>
+<div id="led"></div>
+</div>
+</div>
+
+<button class="start-btn" onclick="goHome()">⬅ Volver</button>
+
+</div>
+
+<!-- INFO (MISMA PÁGINA) -->
+<div id="info" class="screen">
+
+<div class="info-wrapper">
+<div class="info-card">
+
+<h1>Conceptos</h1>
+
+<h2>¿Qué es el sistema binario?</h2>
+<p>
+Es un sistema de numeración basado en dos dígitos(0 y 1).  Es el idioma base de las computadoras para comunicarse y almacenar información. Datos como texto, imágenes y sonido se transforman en código binario para poder ser procesados.
+</p>
+
+<h2>¿Qué es el complemento a 2?</h2>
+<p>
+Método para representar números negativos: se invierten los bits y se suma 1. El complemento a dos es un sistema de representación numérica binaria utilizado por la mayoría de las computadoras modernas para codificar números enteros positivos y negativos. Permite realizar operaciones aritméticas eficientes y simplifica los circuitos lógicos en los sistemas digitales.
+</p>
+
+<h2>¿Qué es overflow?</h2>
+<p>
+En la arquitectura de computadoras es la condición en la que un resultado aritmético o datos superan la capacidad máxima de almacenamiento de un registro, memoria o tipo de dato, provocando corrupción de datos o errores en el sistema. Se produce cuando un valor excede el límite del contenedor. 
+</p>
+
+<h2>¿Qué hace una ALU?</h2>
+<p>
+Una ALU(Unidad Aritmético-Lógica) operaciones aritméticas y lógicas como suma, AND, OR, XOR y NOT. Funciona como el un cerebro matemático que procesa instrucciones, recibe operandos, realiza cálculos y devuelve el resultado. 
+</p>
+
+<button class="start-btn" onclick="goToApp()">⬅ Volver</button>
+
+</div>
+</div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
